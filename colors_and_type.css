@@ -1,0 +1,254 @@
+/* ============================================================
+   FÁTIMA LEOTTA — COLORS & TYPE
+   Foundations: webfonts, color tokens, semantic type roles.
+   Manual de Identidad Visual · "Aligning people & business in tech"
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   WEBFONTS
+   Sentient  — display serif. Manual sanctions ONLY Regular(400),
+               Italic(400) and Bold(700). Light/Extralight/Medium
+               are intentionally NOT wired so they can't be used.
+   DM Sans   — body / UI / buttons (Regular 400 + Bold 700).
+   ---------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('Sentient-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('Sentient-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('Sentient-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sentient';
+  src: url('Sentient-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* DM Sans — variable (opsz, wght). Static fallbacks resolve via the axis. */
+@font-face {
+  font-family: 'DM Sans';
+  src: url('DMSans-Variable.ttf') format('truetype-variations');
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url('DMSans-Italic-Variable.ttf') format('truetype-variations');
+  font-weight: 100 1000;
+  font-stretch: 75% 125%;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+
+  /* ==========================================================
+     COLOR — RAW PALETTE
+     ========================================================== */
+  --color-galaxy:   #101112;   /* near-black · primary dark ground */
+  --color-purple:   #370068;   /* deep violet · primary brand */
+  --color-sparkle:  #701B79;   /* mid magenta-violet · accent */
+  --color-soft:     #EDECEA;   /* warm light grey · calm light ground */
+  --color-pure:     #FDFDFD;   /* off-white · clean surface */
+
+  /* Tints / shades derived in-palette (oklch-harmonised) */
+  --color-purple-700: #2A0050;
+  --color-purple-300: #5A2C8A;   /* hover lift on purple */
+  --color-sparkle-300:#9234A0;
+  --color-galaxy-80:  rgba(16,17,18,0.80);
+  --color-galaxy-60:  rgba(16,17,18,0.60);
+  --color-galaxy-40:  rgba(16,17,18,0.40);
+  --color-galaxy-12:  rgba(16,17,18,0.12);
+  --color-galaxy-06:  rgba(16,17,18,0.06);
+  --color-pure-90:    rgba(253,253,253,0.90);
+  --color-pure-70:    rgba(253,253,253,0.70);
+  --color-pure-45:    rgba(253,253,253,0.45);
+  --color-pure-15:    rgba(253,253,253,0.15);
+
+  /* ==========================================================
+     COLOR — SEMANTIC
+     ========================================================== */
+  --bg-dark:        var(--color-galaxy);
+  --bg-light:       var(--color-soft);
+  --bg-surface:     var(--color-pure);
+  --brand-primary:  var(--color-purple);
+  --brand-accent:   var(--color-sparkle);
+
+  --fg1:            var(--color-galaxy);      /* primary text on light */
+  --fg2:            var(--color-galaxy-60);   /* secondary text on light */
+  --fg3:            var(--color-galaxy-40);   /* muted / captions */
+  --fg-on-dark:     var(--color-pure);        /* primary text on dark */
+  --fg-on-dark-2:   var(--color-pure-70);     /* secondary text on dark */
+  --fg-on-dark-3:   var(--color-pure-45);     /* muted on dark */
+
+  --line:           var(--color-galaxy-12);   /* hairline on light */
+  --line-on-dark:   var(--color-pure-15);     /* hairline on dark */
+
+  /* Brand gradient — the "Galaxy". Diagonal black → purple → sparkle. */
+  --gradient-galaxy: linear-gradient(135deg, #101112 0%, #370068 58%, #701B79 100%);
+  /* Soft radial glow used on dark grounds (corner light) */
+  --gradient-glow:   radial-gradient(120% 120% at 100% 0%, #701B79 0%, #370068 32%, #101112 70%);
+
+  /* ==========================================================
+     TYPE — FAMILIES
+     ========================================================== */
+  --font-display:  'Sentient', Georgia, 'Times New Roman', serif;  /* titles, emphasis */
+  --font-body:     'DM Sans', system-ui, Helvetica, Arial, sans-serif;
+
+  /* Tracking */
+  --track-tight:   -0.01em;
+  --track-normal:   0;
+  --track-wide:     0.06em;   /* buttons */
+  --track-eyebrow:  0.16em;   /* uppercase labels / eyebrows */
+
+  /* ==========================================================
+     TYPE — SEMANTIC ROLES  (per Manual de Identidad)
+     Hierarchy is FIXED:
+       · Título     → Sentient Regular (400) · LH 1.1
+       · Subtítulo  → DM Sans Bold (700)      · LH 1.2
+       · Cuerpo     → DM Sans Regular/Bold     · LH 1.2
+       · Botón      → DM Sans Bold · uppercase · LH 1.1
+       · Especial   → Sentient ITALIC (400)    · LH 1.0  (the key word)
+     Sentient is RESERVED for Título + Especial. It is NEVER used for
+     subtitles, body, buttons or labels. Sentient weights allowed:
+     Regular / Bold / Italic only — NO Light/Extralight/Medium.
+     ========================================================== */
+
+  /* Display / hero — a Título, the largest size */
+  --display-family:    var(--font-display);
+  --display-weight:    400;
+  --display-size:      clamp(2.75rem, 6vw, 5rem);
+  --display-lh:        1.1;       /* manual: Título 110% */
+  --display-track:     var(--track-tight);
+
+  /* H1 — Título · Sentient Regular */
+  --h1-family: var(--font-display);
+  --h1-weight: 400;
+  --h1-size:   clamp(2.25rem, 4vw, 3.5rem);
+  --h1-lh:     1.1;
+  --h1-track:  var(--track-tight);
+
+  /* H2 — Subtítulo · DM Sans Bold (NOT Sentient) */
+  --h2-family: var(--font-body);
+  --h2-weight: 700;
+  --h2-size:   clamp(1.5rem, 2.4vw, 2rem);
+  --h2-lh:     1.2;
+
+  /* H3 — Subtítulo · DM Sans Bold */
+  --h3-family: var(--font-body);
+  --h3-weight: 700;
+  --h3-size:   1.25rem;
+  --h3-lh:     1.2;
+
+  /* Eyebrow / kicker — uppercase DM Sans, tracked */
+  --eyebrow-family: var(--font-body);
+  --eyebrow-weight: 700;
+  --eyebrow-size:   0.75rem;
+  --eyebrow-track:  var(--track-eyebrow);
+  --eyebrow-transform: uppercase;
+
+  /* Body — Cuerpo · DM Sans Regular (700 to emphasise within a paragraph) */
+  --body-family: var(--font-body);
+  --body-weight: 400;
+  --body-weight-bold: 700;
+  --body-size:   1rem;
+  --body-lh:     1.2;          /* manual: Cuerpo 120% */
+  --body-lh-long: 1.5;         /* optional: only for very long-form reading blocks */
+
+  --body-lg-size: 1.125rem;
+  --body-sm-size: 0.875rem;
+
+  /* Especial — the key emotional word · Sentient ITALIC · LH 1.0 */
+  --special-family: var(--font-display);
+  --special-style:  italic;
+  --special-weight: 400;
+  --special-lh:     1.0;
+
+  /* Button */
+  --button-family: var(--font-body);
+  --button-weight: 700;
+  --button-size:   0.875rem;
+  --button-track:  var(--track-wide);
+  --button-transform: uppercase;
+
+  /* Caption / meta */
+  --caption-family: var(--font-body);
+  --caption-weight: 500;
+  --caption-size:   0.8125rem;
+
+  /* ==========================================================
+     SPACING — 8pt base
+     ========================================================== */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 24px;  --space-6: 32px;  --space-7: 48px;  --space-8: 64px;
+  --space-9: 96px;  --space-10: 128px;
+
+  /* ==========================================================
+     RADIUS
+     ========================================================== */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-pill: 9999px;   /* primary buttons & chips */
+
+  /* ==========================================================
+     SHADOW / ELEVATION
+     Quiet on light; tinted purple at higher elevation.
+     ========================================================== */
+  --shadow-sm:  0 1px 3px rgba(16,17,18,0.10);
+  --shadow-md:  0 6px 20px rgba(16,17,18,0.10);
+  --shadow-lg:  0 16px 40px rgba(55,0,104,0.18);
+  --shadow-glow:0 8px 32px rgba(112,27,121,0.28);
+
+  /* ==========================================================
+     MOTION
+     ========================================================== */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast:     150ms var(--ease-out);
+  --t-base:     250ms var(--ease-out);
+  --t-slow:     420ms var(--ease-out);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS (opt-in via .fl-scope or :root)
+   ============================================================ */
+.fl-display {
+  font-family: var(--display-family);
+  font-weight: var(--display-weight);
+  font-size:   var(--display-size);
+  line-height: var(--display-lh);
+  letter-spacing: var(--display-track);
+}
+.fl-h1 { font-family: var(--h1-family); font-weight: var(--h1-weight); font-size: var(--h1-size); line-height: var(--h1-lh); letter-spacing: var(--h1-track); }
+.fl-h2 { font-family: var(--h2-family); font-weight: var(--h2-weight); font-size: var(--h2-size); line-height: var(--h2-lh); }
+.fl-h3 { font-family: var(--h3-family); font-weight: var(--h3-weight); font-size: var(--h3-size); line-height: var(--h3-lh); }
+.fl-eyebrow {
+  font-family: var(--eyebrow-family);
+  font-weight: var(--eyebrow-weight);
+  font-size:   var(--eyebrow-size);
+  letter-spacing: var(--eyebrow-track);
+  text-transform: var(--eyebrow-transform);
+}
+.fl-body { font-family: var(--body-family); font-weight: var(--body-weight); font-size: var(--body-size); line-height: var(--body-lh); }
+.fl-special { font-family: var(--special-family); font-style: var(--special-style); font-weight: var(--special-weight); }
+.fl-caption { font-family: var(--caption-family); font-weight: var(--caption-weight); font-size: var(--caption-size); }

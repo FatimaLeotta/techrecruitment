@@ -1,0 +1,227 @@
+/* Tech Recruitment desde cero — Landing
+   Base + course-specific components. Imports brand foundations. */
+@import url('colors_and_type.css');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--fg1);
+  background: var(--bg-surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+::selection { background: var(--color-sparkle); color: var(--color-pure); }
+
+/* Layout */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+.wrap-narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+.section { padding: 104px 0; }
+.section-sm { padding: 72px 0; }
+
+/* Type helpers */
+.serif { font-family: var(--font-display); font-weight: 400; }
+.it { font-style: italic; }
+.eyebrow {
+  font-family: var(--font-body); font-weight: 700; font-size: 12px;
+  letter-spacing: var(--track-eyebrow); text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1.5px; background: currentColor;
+  opacity: .55; display: inline-block;
+}
+.eyebrow.no-rule::before { display: none; }
+.bk { color: var(--accent, var(--color-sparkle)); font-weight: 400; }
+
+.title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.lede { font-size: 18px; line-height: 1.55; color: var(--fg2); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  font-family: var(--font-body); font-weight: 700; font-size: 14px;
+  letter-spacing: var(--track-wide); text-transform: uppercase;
+  border-radius: var(--radius-pill); padding: 16px 32px; border: none;
+  transition: var(--t-base); white-space: nowrap;
+}
+.btn svg { width: 17px; height: 17px; }
+.btn-primary { background: var(--accent, var(--color-purple)); color: var(--color-pure); }
+.btn-primary:hover { background: var(--color-sparkle); box-shadow: var(--shadow-glow); transform: translateY(-1px); }
+.btn-primary:active { background: var(--color-purple-700); transform: translateY(1px); }
+.btn-outline { background: transparent; color: var(--color-purple); border: 1.5px solid var(--color-galaxy-12); }
+.btn-outline:hover { border-color: var(--color-purple); background: var(--color-purple); color: var(--color-pure); }
+.btn-ondark { background: var(--color-pure); color: var(--color-galaxy); }
+.btn-ondark:hover { background: var(--color-sparkle); color: var(--color-pure); transform: translateY(-1px); }
+.btn-ghost-dark { background: transparent; color: var(--color-pure); border: 1.5px solid var(--color-pure-15); }
+.btn-ghost-dark:hover { border-color: var(--color-pure); }
+.btn-wa { background: #1FA855; color: #fff; }
+.btn-wa:hover { background: #178f47; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(31,168,85,.28); }
+
+/* Sticky WhatsApp button (mobile only) */
+.sticky-wa {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 70;
+  display: none; align-items: center; justify-content: center; gap: 10px;
+  background: #25D366; color: #fff;
+  font-family: var(--font-body); font-weight: 700; font-size: 14px;
+  letter-spacing: var(--track-wide); text-transform: uppercase;
+  padding: 16px 24px; border-radius: var(--radius-pill);
+  box-shadow: 0 10px 28px rgba(11,46,19,.34);
+  transition: transform .4s var(--ease-out);
+}
+.sticky-wa svg { width: 19px; height: 19px; }
+
+/* Chips */
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; padding: 8px 16px;
+  border-radius: var(--radius-pill); border: 1px solid var(--color-galaxy-12);
+  color: var(--fg2); background: var(--color-pure);
+}
+.chip-dark { border-color: var(--color-pure-15); color: var(--fg-on-dark-2); background: transparent; }
+.chip-accent { border: none; background: var(--color-purple); color: var(--color-pure); font-weight: 700; }
+
+/* Check item */
+.check { display: flex; gap: 16px; align-items: flex-start; }
+.check-mark {
+  flex: none; width: 30px; height: 30px; border-radius: var(--radius-pill);
+  display: grid; place-items: center; margin-top: 1px;
+  background: color-mix(in oklch, var(--accent, var(--color-purple)) 12%, transparent);
+  color: var(--accent, var(--color-purple));
+}
+.check-mark svg { width: 17px; height: 17px; }
+.check-dark .check-mark { background: var(--color-pure-15); color: var(--color-pure); }
+
+/* Card */
+.card {
+  background: var(--color-pure); border: 1px solid var(--color-galaxy-12);
+  border-radius: var(--radius-lg); padding: 32px;
+  transition: var(--t-base);
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.card-dark {
+  background: rgba(255,255,255,.04); border: 1px solid var(--color-pure-15);
+}
+
+/* Badge / countdown */
+.badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-weight: 700; font-size: 12px;
+  letter-spacing: var(--track-eyebrow); text-transform: uppercase;
+  padding: 9px 16px; border-radius: var(--radius-pill);
+  background: var(--color-sparkle); color: var(--color-pure);
+}
+.badge-soft {
+  background: color-mix(in oklch, var(--color-sparkle) 14%, transparent);
+  color: var(--color-sparkle);
+}
+.cd { display: inline-flex; gap: 8px; }
+.cd-cell {
+  min-width: 58px; text-align: center; padding: 12px 10px;
+  border-radius: var(--radius-md); background: rgba(255,255,255,.06);
+  border: 1px solid var(--color-pure-15);
+}
+.cd-cell .n { font-family: var(--font-display); font-size: 30px; line-height: 1; display: block; }
+.cd-cell .l { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-on-dark-3); margin-top: 6px; display: block; }
+.cd-light .cd-cell { background: var(--color-pure); border-color: var(--color-galaxy-12); }
+.cd-light .cd-cell .l { color: var(--fg3); }
+
+/* Module */
+.mod-num { font-family: var(--font-display); font-size: 40px; line-height: 1; color: var(--accent, var(--color-sparkle)); }
+.mod-li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--color-galaxy-12); font-size: 15px; line-height: 1.45; color: var(--fg2); }
+.mod-li::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent, var(--color-purple)); margin-top: 8px; }
+
+/* Reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+  .reveal.in { opacity: 1; transform: none; }
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* split = two-column inline grids (Edición, Por qué, Incluye, Sobre mí).
+   Each instance sets its own desktop columns inline; this collapses them. */
+.nav-cta-mobile { display: none; }
+
+/* Hero image wrapper — context for firma + max-height on mobile */
+.hero-img-wrap { position: relative; }
+
+/* Modalidad header (1fr auto) */
+.modalidad-header { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; margin-bottom: 48px; }
+
+/* Incluye bottom row */
+.incluye-foot { display: flex; gap: 40px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+
+/* Responsive */
+/* Tablet: collapse 3/4-up grids to 2, stack the editorial splits */
+@media (max-width: 920px) {
+  .section { padding: 84px 0; }
+  .grid-3 { grid-template-columns: 1fr 1fr !important; }
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .split { grid-template-columns: 1fr !important; gap: 44px !important; }
+  .nav-links { display: none !important; }
+  .nav-cta-mobile { display: inline-flex !important; }
+  .hide-mobile { display: none !important; }
+  /* Testimonio destacado: en mobile la comilla pasa arriba del texto (como en las cards chicas) */
+  .testi-big { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .testi-big .testi-big-quote { font-size: 56px !important; height: 24px !important; }
+  .cta-box { padding: 56px 34px !important; }
+  /* Hero uses inline padding ("92px 32px 96px") that bypasses .wrap — tame it here */
+  .hero-grid { padding-top: 64px !important; padding-bottom: 68px !important; }
+  /* Hero image: cap height when stacked */
+  .hero-img-wrap { max-height: 400px; overflow: hidden; border-radius: var(--radius-xl); }
+  .hero-img-wrap img { height: 100%; width: 100%; object-fit: cover; }
+  /* Modalidad header: drop to single column, hide empty auto track */
+  .modalidad-header { grid-template-columns: 1fr !important; }
+}
+
+/* Phone: single column everywhere, tighter spacing */
+@media (max-width: 760px) {
+  .sticky-wa { display: flex; }
+  body { padding-bottom: 78px; }
+}
+@media (max-width: 620px) {
+  .wrap, .wrap-narrow { padding: 0 20px; }
+  .section { padding: 60px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
+  .hero-grid, .split { gap: 36px !important; }
+  .card { padding: 24px !important; }
+  .cta-box { padding: 40px 22px !important; }
+  .cd { gap: 6px; }
+  .cd-cell { min-width: 52px; padding: 11px 5px; }
+  .cd-cell .n { font-size: 24px; }
+  .btn { padding: 15px 24px; }
+  .hero-grid { padding-left: 20px !important; padding-right: 20px !important; padding-top: 52px !important; padding-bottom: 56px !important; }
+  /* Hero image: tighter on small phones */
+  .hero-img-wrap { max-height: 300px !important; }
+  /* Incluye bottom row: stack vertically */
+  .incluye-foot { flex-direction: column !important; gap: 24px !important; }
+  .incluye-foot > a.btn { align-self: flex-start; }
+  /* Sobre mí firma: scale down */
+  .sobremi-firma { height: 56px !important; }
+  /* PorQue nots: wrap individually */
+  .porque-nots { flex-direction: column !important; gap: 14px !important; }
+}
+
+/* Small phones: keep nav, countdown and CTA boxes comfortable */
+@media (max-width: 400px) {
+  .cd { gap: 5px; }
+  .cd-cell { min-width: 46px; padding: 10px 3px; }
+  .cd-cell .n { font-size: 22px; }
+  .btn { padding: 14px 20px; font-size: 13px; }
+  .cta-box { padding: 34px 18px !important; }
+  .card { padding: 20px !important; }
+  /* Long-label CTAs may exceed a narrow phone \u2014 allow wrapping */
+  .btn-wa, .btn-primary, .btn-ondark { white-space: normal; line-height: 1.25; text-align: center; }
+}
