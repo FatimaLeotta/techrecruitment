@@ -85,10 +85,10 @@ function Avatar({ img, name }) {
 window.Avatar = Avatar;
 
 function Testimonios() {
-  const big = { q: "El mayor aprendizaje fue entender que el recruiting cambia por completo según el modelo de negocio y el tipo de empresa para la que estás buscando talento. La gran diferencia con otros cursos es que no se queda en la teoría: todo el contenido está atravesado por la experiencia práctica y real de Fátima. Recomendaría esta formación a cualquier profesional que quiera comprender cómo funciona realmente la industria tecnológica, qué buscan las empresas hoy y cómo desarrollar una mirada más estratégica del recruiting.", a: "M. Salomé Corradi Biondi", r: "Psicóloga", img: "assets/testi-salome.jpeg" };
+  const big = { q: "El mayor aprendizaje fue entender que el recruiting cambia por completo según el modelo de negocio y el tipo de empresa para la que estás buscando talento. La gran diferencia con otros cursos es que no se queda en la teoría: todo el contenido está atravesado por la experiencia práctica y real de Fátima. Recomendaría esta formación a cualquier profesional que quiera comprender cómo funciona realmente la industria tecnológica, qué buscan las empresas hoy y cómo desarrollar una mirada más estratégica del recruiting.", a: "M. Salomé Corradi Biondi", r: "Psicóloga", img: "testi-salome.jpeg" };
   const quotes = [
-    { q: "Antes del curso solo tenía impresiones generales sobre la industria tech. Hoy comprendo perfiles, tecnologías, buenas prácticas de recruiting y las características más valoradas por el mercado.", a: "Laura Saball", r: "Lic. en Psicología · Especialista en Gestión del Talento", img: "assets/testi-laura.png" },
-    { q: "Era totalmente neófita en recruiting tech y Fátima logró que un mundo que parecía complejo se volviera accesible y amigable. Es una inversión clara en conocimiento práctico y aplicable.", a: "Lia de Cara", r: "Coordinadora de Equipos", img: "assets/testi-lia.png" },
+    { q: "Antes del curso solo tenía impresiones generales sobre la industria tech. Hoy comprendo perfiles, tecnologías, buenas prácticas de recruiting y las características más valoradas por el mercado.", a: "Laura Saball", r: "Lic. en Psicología · Especialista en Gestión del Talento", img: "testi-laura.png" },
+    { q: "Era totalmente neófita en recruiting tech y Fátima logró que un mundo que parecía complejo se volviera accesible y amigable. Es una inversión clara en conocimiento práctico y aplicable.", a: "Lia de Cara", r: "Coordinadora de Equipos", img: "testi-lia.png" },
   ];
   const highlights = ["Claridad para entender la industria tech", "Conceptos explicados de forma simple", "Aplicación práctica y ejemplos reales", "Criterio compartido desde la experiencia"];
   return (
