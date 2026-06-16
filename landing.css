@@ -212,6 +212,7 @@ button { font-family: inherit; cursor: pointer; }
   .hero-img-wrap { width: 100% !important; max-height: none !important; }
   /* Incluye bottom row: stack vertically */
   .incluye-foot { flex-direction: column !important; gap: 24px !important; }
+  .incluye-foot > div { flex: 0 0 auto !important; }
   .incluye-foot > a.btn { align-self: flex-start; }
   /* Sobre mí firma: scale down */
   .sobremi-firma { height: 56px !important; }
