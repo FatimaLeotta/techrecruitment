@@ -10,7 +10,7 @@ function Incluye() {
     ["award", "Certificado de participación"],
   ];
   return (
-    <section className="section" style={{ background: "var(--bg-light)" }}>
+    <section className="section" style={{ background: "var(--bg-light)", paddingBottom: "64px" }}>
       <div className="wrap" style={{ maxWidth: 940 }}>
         <div className="reveal" style={{ marginBottom: 36 }}>
           <div className="eyebrow" style={{ color: "var(--color-sparkle)", marginBottom: 18 }}>Qué incluye</div>

@@ -122,7 +122,7 @@ function Hero({ t }) {
           <div className="hero-img-wrap" style={{ borderRadius: "var(--radius-xl)", overflow: "hidden", aspectRatio: "3/4", boxShadow: "var(--shadow-lg)", background: "#a89cb8" }}>
             <img src="hero-fatima-retrato.png" alt="Fátima Leotta" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 16%" }} />
           </div>
-          <div className="hide-mobile" style={{
+          <div className="hero-badge" style={{
             position: "absolute", left: -26, bottom: 30, background: "var(--color-pure)",
             borderRadius: "var(--radius-lg)", boxShadow: "var(--shadow-lg)", padding: "16px 20px", maxWidth: 200
           }}>
